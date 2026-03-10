@@ -4,10 +4,10 @@
 name: Python application
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  schedule:
+    # 每天早上 6 点北京时间（UTC+8）运行
+    - cron: '0 22 * * *'  # UTC 时间 22:00 对应北京时间 6:00
+  workflow_dispatch:  # 允许手动触发
 
 permissions:
   contents: write
