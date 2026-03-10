@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+kuro_auto_signin_py.egg-info/PKG-INFO
+kuro_auto_signin_py.egg-info/SOURCES.txt
+kuro_auto_signin_py.egg-info/dependency_links.txt
+kuro_auto_signin_py.egg-info/requires.txt
+kuro_auto_signin_py.egg-info/top_level.txt

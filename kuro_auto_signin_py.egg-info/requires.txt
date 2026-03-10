@@ -1,0 +1,13 @@
+httpx>=0.28.1
+requests>=2.32.5
+crontab>=1.0
+loguru>=0.7.3
+pytz>=2025.2
+pyyaml>=6.0.3
+types-python-crontab>=3.3.0.20251115
+types-pytz>=2025.2.0.20251108
+types-pyyaml>=6.0.12.20250915
+types-requests>=2.32.4.20250913
+
+[windows]
+win11toast>=0.36.2

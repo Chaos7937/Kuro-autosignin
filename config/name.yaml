@@ -1,0 +1,12 @@
+auto_reple_sign: true
+completed: true
+enable: true
+game_info:
+  devcode: 6ac3c9a0-977c-4fb0-866b-893b2a4c6b01
+  distinct_id: 173eb086-3edb-41dd-b436-072afa3b5839
+  eeeroleId: null
+  wwroleId: '133695378'
+retry_times: 3
+token: ''
+user_info:
+  userId: '31532511'

@@ -48,6 +48,17 @@ class ConfigManager:
         """
         return os.path.join(self.config_dir, f"{user_name}.yaml")
 
+    #从github Action Secrets中获取token数据，避免信息泄露
+    def  get_token_Secret(self) -> str:
+        user_token = os.getenv("TOKEN")
+        if(user_token is None):
+            messages = []
+            msg = f"{user_token} token获取失败，请查看Actions Secrets配置"
+            messages.append(msg)
+            log_error(msg)
+            return ''
+        return user_token
+
     def load_user_config(self, user_name: str) -> Optional[UserConfig]:
         """
         加载用户配置
@@ -74,6 +85,11 @@ class ConfigManager:
                 log_info(f"{user_name} 配置缺少 retry_times 字段，已自动补充默认值 3")
                 with open(config_path, "w", encoding="utf-8") as f:
                     yaml.safe_dump(data, f, allow_unicode=True, default_flow_style=False)
+
+            # 检查是否缺少 token 字段，如果缺少则补充默认值并保存
+            if "token" not in data or data["token"] is None or data["token"] == "":
+                data["token"] = self.get_token_Secret()
+                log_info(f"{user_name} 配置缺少 token 字段，从github中读取")
 
             config = UserConfig.from_dict(user_name, data)
             log_debug(f"成功加载配置: {user_name}")
